@@ -1,0 +1,49 @@
+﻿#yorumbutonu {
+    position: relative;
+    float: right;
+    width: 6%;
+    height: 70px;
+    background: #ff5a10;
+    border: none;
+    margin: 15px;
+    margin-top: 0px;
+    border-radius: 20px;
+    text-align: center;
+    font-family: cursive;
+    color: white;
+}
+
+#yorumkutu {
+    display: block;
+    border: 1px solid #ff590f;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+#yorummetini {
+    float: left;
+    margin:15px;
+    margin-top: 40px;
+    width: 75%;
+    height: 97px;
+    border: outset;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-family: cursive;
+    font-style: italic;
+}
+.YorumSil {
+    position: relative;
+    float: right;
+    width: 6%;
+    height: 70px;
+    background: #ff5a10;
+    border: none;
+    margin: 15px;
+    margin-top: 0px;
+    border-radius: 20px;
+    text-align: center;
+    font-family: cursive;
+    color: white;
+}

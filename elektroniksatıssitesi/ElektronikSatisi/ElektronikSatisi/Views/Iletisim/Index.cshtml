@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="contact">
+    <div class="container">
+        <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
+            <h3 class="title">Bizimle İletişime Geç</h3>
+            <p>Hem Ucuz Hem Kaliteli </p>
+        </div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12166.811658230667!2d36.46768438697121!3d40.326750470009095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x407db9aea48bdfc7%3A0xd44c0b0905f7b9e7!2zR2F6aW9zbWFucGHFn2Egw5xuaXZlcnNpdGVzaSBUYcWfbMSxw6dpZnRsaWsgWWVybGXFn2tlc2k!5e0!3m2!1str!2str!4v1652538075245!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+<div class="address">
+    <!--address-->
+    <div class="container">
+        <div class="address-row">
+            <div class="col-md-6 address-left wow fadeInLeft animated" data-wow-delay=".5s">
+                <div class="address-grid">
+                    <h4 class="wow fadeIndown animated" data-wow-delay=".5s">Bize Bir Mesaj Bırakın</h4>
+                    <form action="/Iletisim/IletisimeGec" method="post">
+                        <input class="wow fadeIndown animated" data-wow-delay=".6s" value="" type="text" name="MBUrun" placeholder="Bir Ürün Adı Girin Ya da Boş Bırakın" >
+                        <input class="wow fadeIndown animated" data-wow-delay=".6s" type="text" name="MBIsim" placeholder="Adınızı Giriniz" required="">
+                        <input class="wow fadeIndown animated" data-wow-delay=".7s" type="text" name="MBSoyisim" placeholder="Email Giriniz" required="">
+                        <input class="wow fadeIndown animated" data-wow-delay=".8s" type="text" name="MBMail" placeholder="Konu Giriniz" required="">
+                        <input class="wow fadeIndown animated" data-wow-delay=".6s" type="text" name="MBTelefon" placeholder="Telefon Giriniz" required="">
+                        <textarea class="wow fadeIndown animated" data-wow-delay=".8s" name="MBMesaj" placeholder="Göndermek İstediğiniz Mesajı Giriniz" required=""></textarea>
+                        <input class="wow fadeIndown animated" data-wow-delay=".9s" type="submit" value="GÖNDER">
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6 address-right">
+                <div class="address-info wow fadeInRight animated" data-wow-delay=".5s">
+                    <h4>Adresimiz</h4>
+                    <p>TUZCUMURAT MAHALLESİ 117. SOKAK EDREMİT/BALIKESİR TÜRKİYE</p>
+                </div>
+                <div class="address-info address-mdl wow fadeInRight animated" data-wow-delay=".7s">
+                    <h4>Telefon Numaralarımız </h4>
+                    <p>+222 111 333 4444</p>
+                    <p>+222 111 333 5555</p>
+                </div>
+                <div class="address-info wow fadeInRight animated" data-wow-delay=".6s">
+                    <h4>Mail Adreslerimiz</h4>
+                    <p><a href="mailto:example@mail.com"> aliemre7373@gmail.com</a></p>
+                    <p><a href="mailto:example@mail.com"> aliemre_349@hotmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

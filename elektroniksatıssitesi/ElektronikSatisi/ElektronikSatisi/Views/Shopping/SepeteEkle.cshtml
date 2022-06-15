@@ -1,0 +1,133 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "SepeteEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model PagedList<ElektronikSatisi.Models.Sepet>
+
+
+<html>
+<head>
+    <div class="breadcrumbs">
+        <div class="container">
+            ""
+            <ol class="breadcrumb breadcrumb1 animated wow fadeInUp" data-wow-delay=".5s">
+                <li><a href="/Home/Index"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Ana Sayfa</a></li>
+                <li class="active">Sepetim</li>
+            </ol>
+        </div>
+    </div>
+    <title>Sepetim</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/shop.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    @if(Session["sepetAdet"] == null || Convert.ToInt32(Session["sepetAdet"]) == 0)
+    {
+        <h3 style="padding: 25px; margin-left: 3%;" class="title">SEPET BOŞ <span> Ürün Ekleyin</span></h3>
+    }
+
+    <div class="container">
+        <div class="cart">
+            <div class="products">
+                @foreach (var sepet in Model)
+                {
+                    <form action="/Shopping/ListeDegistir" method="post">
+                        <div class="product">
+                            <img src="@sepet.SResiyomYol">
+                            <div class="product-info">
+                                <input name="baslik" class="product-name" value="@sepet.SBaslik"></input>
+                                <h4 class="product-price">@sepet.SFiyat TL</h4>
+                                <h4 class="product-offer">@sepet.SAciklama</h4>
+
+                                <button name="arttır" id="arttır" style="color:orangered"></button>
+                                <button name="azalt" id="azalt" style="color:orangered"></button>
+                                <div class="adetcim">
+                                    <p class="qty"> ADET : </p><input id="adetdegis" name="adet"
+                                                                      onkeyup="if (parseInt(this.value) >@sepet.SUadet)
+                                { this.value = @sepet.SUadet ; return false; }"
+                                                                      min="1" max="@sepet.SUadet" type="text" value="@sepet.SAdet"
+                                                                      class="item_quantity1" disabled>
+                                </div>
+
+
+                                <a href="/Shopping/ListeKaldır/@sepet.id" type="submit" class="remove" style="color:white;list-style:none;width:70px;">
+                                    <p class="product-remove">
+                                        <i class="fa fa-trash" aria-hidden="true"> Kaldır </i>
+                                    </p>
+                                </a>
+
+                            </div>
+                        </div>
+                    </form>
+                }
+            </div>
+            <div class="cart-total">
+                <p>
+                    <span>Toplam Sepet Tutarı</span>
+                    <span>@Session["tutar"]TL</span>
+                </p>
+                <p>
+                    <span>Sepetteki Ürün Sayısı</span>
+                    <span>@Session["sepetAdet"]ADET</span>
+                </p>
+                <p>
+                    <span>Bakiyeniz : </span>
+                    <span>@Session["Bakiye"]TL</span>
+                </p>
+                <a href="/Urunler/SatinAl">Satın AL</a>
+            </div>
+
+            <form action="/Shopping/KuponKullan" method="post">
+                <div class="kupon-total">
+                    <span class="kuponBaslik">İndirim Kuponu Kullanın</span>
+                    <input class="kuponIn" type="text" name="kupon" max="15" placeholder="Kupon Girin" />
+                    <button>Kupon Kullan</button>
+                    <h3 style="font-family: cursive; font-size: 13px; color: red; text-align: center; margin-top: 20px;">@TempData["sepetmesaj"]</h3>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    document.getElementById("arttır").addEventListener("click", degis);
+    document.getElementById("azalt").addEventListener("click", degis1);
+    function degis() {
+        document.getElementById("arttır").value = "arttır1";
+
+    }
+    function degis1() {
+        document.getElementById("azalt").value = "azalt1";
+
+    }
+
+</script>
+
+@*<script>
+
+        document.getElementById("adetdegis").addEventListener("input", degis);
+
+        function degis() {
+            var x = document.getElementById("adetdegis");
+            var z = x.value;
+            var y = x.max;
+
+            if (Number(y) < Number(z)) {
+                alert("a");
+                document.getElementById("adetdegis").value = y;
+
+
+            } else {
+                alert("b");
+                //window.location.replace("/Shopping/ListeDegistir");
+            }
+
+        }
+    </script>*@

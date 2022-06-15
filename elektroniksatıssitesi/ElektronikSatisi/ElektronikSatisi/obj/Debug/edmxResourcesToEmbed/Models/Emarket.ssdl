@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmarketModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdminLogin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AKullaniciAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="ASifre" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Kuponlar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kisim" Type="nvarchar" MaxLength="20" />
+    <Property Name="Kindirim" Type="int" />
+    <Property Name="Ktutarlimit" Type="int" />
+  </EntityType>
+  <EntityType Name="Manset">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mbaslik" Type="nvarchar" MaxLength="50" />
+    <Property Name="Maciklama" Type="nchar" MaxLength="200" />
+    <Property Name="MresimYol" Type="ntext" />
+    <Property Name="MMansetUrun" Type="int" />
+  </EntityType>
+  <EntityType Name="MesajBox">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MBUrun" Type="nvarchar" MaxLength="50" />
+    <Property Name="MBIsim" Type="nvarchar" MaxLength="50" />
+    <Property Name="MBSoyisim" Type="nvarchar" MaxLength="50" />
+    <Property Name="MBMail" Type="nvarchar" MaxLength="50" />
+    <Property Name="MBMesaj" Type="nvarchar" MaxLength="50" />
+    <Property Name="MBTelefon" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Resimler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RResimYolu" Type="ntext" Nullable="false" />
+    <Property Name="RResimUrun" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SatinAlinan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SAUrun" Type="nvarchar" MaxLength="50" />
+    <Property Name="SAIsim" Type="nvarchar" MaxLength="50" />
+    <Property Name="SASoyisim" Type="nvarchar" MaxLength="50" />
+    <Property Name="SAMail" Type="nvarchar" MaxLength="50" />
+    <Property Name="SAAdres" Type="nvarchar" MaxLength="50" />
+    <Property Name="SATelefon" Type="nvarchar" MaxLength="50" />
+    <Property Name="SAMesaj" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Sepet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SBaslik" Type="nvarchar" MaxLength="100" />
+    <Property Name="SAciklama" Type="nvarchar" MaxLength="500" />
+    <Property Name="SResiyomYol" Type="ntext" />
+    <Property Name="SFiyat" Type="nvarchar" MaxLength="50" />
+    <Property Name="SKategori" Type="nvarchar" MaxLength="50" />
+    <Property Name="SAdet" Type="int" />
+    <Property Name="SSepetUser" Type="int" />
+    <Property Name="SSepetUrun" Type="int" />
+    <Property Name="SUadet" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UBaslik" Type="nvarchar" MaxLength="50" />
+    <Property Name="UAciklama" Type="nvarchar" MaxLength="200" />
+    <Property Name="UResimYol" Type="ntext" />
+    <Property Name="UFiyat" Type="nvarchar" MaxLength="50" />
+    <Property Name="UKategori" Type="nvarchar" MaxLength="50" />
+    <Property Name="UAdet" Type="int" />
+  </EntityType>
+  <EntityType Name="UserKupon">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Uuserid" Type="int" />
+    <Property Name="Ukuponid" Type="int" />
+  </EntityType>
+  <EntityType Name="UserLogin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Uisim" Type="nvarchar" MaxLength="20" />
+    <Property Name="Usoyisim" Type="nchar" MaxLength="20" />
+    <Property Name="UKullaniciAdi" Type="nchar" MaxLength="20" />
+    <Property Name="USifre" Type="nchar" MaxLength="20" />
+    <Property Name="UBakiye" Type="int" />
+    <Property Name="UResimYolu" Type="ntext" />
+    <Property Name="UTutar" Type="int" />
+    <Property Name="USepetAdet" Type="int" />
+  </EntityType>
+  <EntityType Name="Yorumlar">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="YYorum" Type="nvarchar" MaxLength="450" />
+    <Property Name="YIsim" Type="nvarchar" MaxLength="20" />
+    <Property Name="YSoyisim" Type="nvarchar" MaxLength="20" />
+    <Property Name="YResimYolu" Type="ntext" />
+    <Property Name="YYildiz" Type="int" />
+    <Property Name="YYorumUrun" Type="int" />
+    <Property Name="YYorumUser" Type="int" />
+  </EntityType>
+  <Association Name="FK_Manset_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="Manset" Type="Self.Manset" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Manset">
+        <PropertyRef Name="MMansetUrun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Resimler_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="1" />
+    <End Role="Resimler" Type="Self.Resimler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Resimler">
+        <PropertyRef Name="RResimUrun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sepet_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Sepet">
+        <PropertyRef Name="SSepetUrun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sepet_UserLogin">
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="0..1" />
+    <End Role="Sepet" Type="Self.Sepet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserLogin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Sepet">
+        <PropertyRef Name="SSepetUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserKupon_Kuponlar">
+    <End Role="Kuponlar" Type="Self.Kuponlar" Multiplicity="0..1" />
+    <End Role="UserKupon" Type="Self.UserKupon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kuponlar">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserKupon">
+        <PropertyRef Name="Ukuponid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserKupon_UserLogin">
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="0..1" />
+    <End Role="UserKupon" Type="Self.UserKupon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserLogin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserKupon">
+        <PropertyRef Name="Uuserid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Yorumlar_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="Yorumlar" Type="Self.Yorumlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Yorumlar">
+        <PropertyRef Name="YYorumUrun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Yorumlar_UserLogin">
+    <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="0..1" />
+    <End Role="Yorumlar" Type="Self.Yorumlar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserLogin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Yorumlar">
+        <PropertyRef Name="YYorumUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmarketModelStoreContainer">
+    <EntitySet Name="AdminLogin" EntityType="Self.AdminLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kuponlar" EntityType="Self.Kuponlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Manset" EntityType="Self.Manset" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MesajBox" EntityType="Self.MesajBox" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Resimler" EntityType="Self.Resimler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SatinAlinan" EntityType="Self.SatinAlinan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sepet" EntityType="Self.Sepet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Urunler" EntityType="Self.Urunler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserKupon" EntityType="Self.UserKupon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Yorumlar" EntityType="Self.Yorumlar" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Manset_Urunler" Association="Self.FK_Manset_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="Manset" EntitySet="Manset" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Resimler_Urunler" Association="Self.FK_Resimler_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="Resimler" EntitySet="Resimler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sepet_Urunler" Association="Self.FK_Sepet_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="Sepet" EntitySet="Sepet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sepet_UserLogin" Association="Self.FK_Sepet_UserLogin">
+      <End Role="UserLogin" EntitySet="UserLogin" />
+      <End Role="Sepet" EntitySet="Sepet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserKupon_Kuponlar" Association="Self.FK_UserKupon_Kuponlar">
+      <End Role="Kuponlar" EntitySet="Kuponlar" />
+      <End Role="UserKupon" EntitySet="UserKupon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserKupon_UserLogin" Association="Self.FK_UserKupon_UserLogin">
+      <End Role="UserLogin" EntitySet="UserLogin" />
+      <End Role="UserKupon" EntitySet="UserKupon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Yorumlar_Urunler" Association="Self.FK_Yorumlar_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="Yorumlar" EntitySet="Yorumlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Yorumlar_UserLogin" Association="Self.FK_Yorumlar_UserLogin">
+      <End Role="UserLogin" EntitySet="UserLogin" />
+      <End Role="Yorumlar" EntitySet="Yorumlar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

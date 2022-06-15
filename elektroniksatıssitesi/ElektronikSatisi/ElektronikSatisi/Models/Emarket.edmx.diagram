@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c59a1395a8504a2c93574d515909e8a3" Name="Diagram1">
+        <EntityTypeShape EntityType="EmarketModel.AdminLogin" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.Kuponlar" Width="1.5" PointX="3.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.Manset" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.MesajBox" Width="1.5" PointX="8.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.Resimler" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.SatinAlinan" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.Sepet" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.Urunler" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.UserKupon" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.UserLogin" Width="1.5" PointX="3.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmarketModel.Yorumlar" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="EmarketModel.FK_UserKupon_Kuponlar" ManuallyRouted="false" />
+        <AssociationConnector Association="EmarketModel.FK_Manset_Urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="EmarketModel.FK_Resimler_Urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="EmarketModel.FK_Sepet_Urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="EmarketModel.FK_Sepet_UserLogin" ManuallyRouted="false" />
+        <AssociationConnector Association="EmarketModel.FK_Yorumlar_Urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="EmarketModel.FK_UserKupon_UserLogin" ManuallyRouted="false" />
+        <AssociationConnector Association="EmarketModel.FK_Yorumlar_UserLogin" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

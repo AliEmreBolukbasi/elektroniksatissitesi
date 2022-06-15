@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<ElektronikSatisi.Models.Manset>
+
+<link rel="stylesheet" href="~/Content/css/flexslider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="~/Content/css/flexslider1.css" type="text/css" media="screen" />
+
+<!--banner-->
+<div class="banner">
+    <div class="container">
+        <div class="banner-text">
+            <div class="col-sm-5 banner-left wow fadeInLeft animated" data-wow-delay=".5s">
+                <h2>Tüm Ürünlerde İndirim</h2>
+                <h3>Çok Yakında </h3>
+                <h4>Yeni Ürünler</h4>
+                <div class="count main-row">
+                    <ul id="example">
+                        <li><span class="hours">00</span><p>Saat</p></li>
+                        <li><span class="minutes">00</span><p>Dakika</p></li>
+                        <li><span class="seconds">00</span><p>Saniye</p></li>
+                    </ul>
+                    <div class="clearfix"> </div>
+                    <script type="text/javascript" src="~/Content/js/jquery.countdown.min.js"></script>
+                    <script type="text/javascript">
+                        $('#example').countdown({
+                            date: '12/24/2022 15:59:59',
+                            offset: -8,
+                            day: 'Day',
+                            days: 'Days'
+                        }, function () {
+                            alert('Bitti!');
+                        });
+                    </script>
+                </div>
+
+            </div>
+            <div class="col-sm-7 banner-right wow fadeInRight animated" data-wow-delay=".5s">
+                <section class="slider grid">
+                    <div class="flexslider">
+                        <ul class="slides">
+                                @foreach (var item in Model)
+                                {
+                                 <li>
+                                     <a href="/Urunler/Detay/@item.MMansetUrun">
+                                         <h4 class="baslik">@item.Mbaslik</h4>
+                                         <h4 style="bottom: 0%;" class="aciklama">@item.Maciklama</h4>
+                                         <img width="100" height="150" src="@item.MresimYol" class="fileImage">
+                                     </a>
+                                 </li>
+                                 }
+                            </ul>
+                    </div>
+                </section>
+
+                @*W3SCHOOL SLİDER*@
+
+                <!--FlexSlider-->
+                <script defer src="~/Content/js/jquery.flexslider.js"></script>
+                <script type="text/javascript">
+                    $(window).load(function () {
+                        $('.flexslider').flexslider({
+                            animation: "pagination",
+                            start: function (slider) {
+                                $('body').removeClass('loading');
+                            }
+                        });
+                    });
+                </script>
+                <!--End-slider-script-->
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<!--//banner-->

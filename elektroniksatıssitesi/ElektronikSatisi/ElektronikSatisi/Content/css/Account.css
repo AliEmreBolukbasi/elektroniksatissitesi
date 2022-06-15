@@ -1,0 +1,170 @@
+﻿.action {
+    position: relative;
+    /* bottom:35px; */
+    /* margin-left:260px; */
+    z-index: 999;
+    /* margin: 10px; */ display: grid; /* margin-left: 100px; */ /* padding-left: 5px; */
+}
+
+    .action .profile {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+
+        .action .profile img {
+            position: relative;
+            /* top: 0; */
+            /* left: 0; */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* margin: 10px; */
+        }
+
+
+    .action .menu {
+        position: absolute;
+        top: 120px;
+        right:35%;
+        padding: 10px 20px;
+        background: #f5f5f5;
+        width: 200px;
+        box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+        border-radius: 15px;
+        transition: 0.5s;
+        visibility: hidden;
+        opacity: 0;
+    }
+
+        .action .menu.active {
+            top: 80px;
+            visibility: visible;
+            opacity: 1;
+        }
+
+
+        .action .menu::before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: 46%;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            transform: rotate(45deg);
+        }
+
+        .action .menu h3 {
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+            padding: 20px 0;
+            font-weight: 500;
+            color: #555;
+            line-height: 1.5em;
+        }
+
+            .action .menu h3 span {
+                font-size: 20px;
+                color: #ff0000;
+                font-weight: 300;
+            }
+
+        .action .menu ul li {
+            list-style: none;
+            padding: 16px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+        }
+
+            .action .menu ul li img {
+                max-width: 20px;
+                margin-right: 10px;
+                opacity: 0.5;
+                transition: 0.5s;
+            }
+
+            .action .menu ul li:hover img {
+                opacity: 1;
+            }
+
+            .action .menu ul li a {
+                display: inline-block;
+                text-decoration: none;
+                color: #555;
+                font-weight: 500;
+                transition: 0.5s;
+            }
+
+            .action .menu ul li:hover a {
+                color: #ff5d94;
+            }
+
+
+
+.dosyaAlma {
+    border: 1px solid #E2DCDC;
+    padding: 5px;
+    margin-bottom: 14px;
+    height: 70px;
+}
+
+#avatarim {
+    margin: 10px;
+    margin-left: -15px;
+    background-color: #ff5a10;
+    color: white;
+    width: 210px;
+    font-family: monospace;
+}
+
+#avataryazi {
+    font-family: monospace;
+    font-size: 1em;
+    color: #999999;
+}
+
+#iletisimim {
+    margin-top: 6em;
+    float: left;
+    position: relative;
+    margin-left: -45%;
+    border-right: 1px solid #ECECEC;
+    margin-right: 2em;
+    padding-right: 2em;
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+@media (max-width: 750px) {
+    #iletisimim {
+        margin-top: 15px;
+        margin-left: 45%;
+    }
+}
+
+
+@media (max-width: 1080px) {
+    #accountmenu {
+        right: 25%;
+    }
+}
+
+@media (max-width: 990px) {
+    #accountmenu {
+        right: -80px;
+    }
+}
+
+@media (max-width: 750px) {
+    #accountmenu {
+        right: -123px;
+    }
+}

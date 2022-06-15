@@ -1,0 +1,163 @@
+﻿
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ElektronikSatisi.Models.Urunler
+
+<link rel="stylesheet" href="~/Content/css/flexslider2.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="~/Content/css/flexslider22.css" type="text/css" media="screen" />
+
+<div class="single">
+    <div class="container">
+        <div class="single-info">
+            <div class="col-md-6 single-top wow fadeInLeft animated" data-wow-delay=".5s">
+                <div class="flexslider">
+                    <ul class="slides">
+                        @foreach (var item in Model.Resimler)
+                        {
+                            <li data-thumb="@item.RResimYolu">
+                                <div class="thumb-image"> <img src="@item.RResimYolu" data-imagezoom="true" class="img-responsive" alt=""> </div>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 single-top-left simpleCart_shelfItem wow fadeInRight animated" data-wow-delay=".5s">
+                <h3>@Model.UBaslik</h3>
+                <div class="single-rating">
+                    <span class="starRating">
+                        <input name="yildiz" id="rating1" type="radio" value="5" checked>
+                        <label for="rating1">5</label>
+                        <input name="yildiz" id="rating2" type="radio" value="4">
+                        <label for="rating2">4</label>
+                        <input name="yildiz" id="rating3" type="radio" value="3">
+                        <label for="rating3">3</label>
+                        <input name="yildiz" id="rating4" type="radio" value="2">
+                        <label for="rating4">2</label>
+                        <input name="yildiz" id="rating5" type="radio" value="1">
+                        <label for="rating5">1</label>
+                    </span>
+                    <p>5 üzerinden <input id="durumRate" min="1" max="5" type="number" value="5" style="color:#fd0b0b; font-size: 15px; width: 35px; " class="item_quantity" onkeyup="if (parseInt(this.value) > 5) { this.value = 5 ; return false; }"/></p>
+                    <a id="yorum" onclick="yorumSc">Yorum Yaz</a>
+                </div>
+
+                <h6 class="item_price">@Model.UFiyat</h6>
+                <p>@Model.UAciklama</p>
+
+                <form action="/Shopping/SepeteEkle/@Model.id" method="post">
+                    <div class="clearfix"> </div>
+                    <div class="quantity">
+                        <p class="qty"> Adet Giriniz : </p><input name="adet" onkeyup="if (parseInt(this.value) >@Model.UAdet) { this.value = @Model.UAdet ; return false; }" min="1" max="@Model.UAdet" type="number" value="1" class="item_quantity">
+                    </div>
+                    <div class="btn_form">
+                        <button class="btnbtnbtn" style="background-color: white; border:none;"><a class="add-cart item_add">SEPETE EKLE</a></button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+
+    </div>
+</div>
+<div class="container" id="yorumkutu" style="display:none;">
+    <form action="/Urunler/YorumEkle/@Model.id" method="post">
+        <img style="width: 60px; height: 60px; position: relative; float: left;" src="@Session["Resim"]" />
+        <h2 style=" margin-left: 90px; font-family: cursive; padding-top: 10px;"> @Session["Isım"] @Session["Soyad"]</h2>
+
+        <div class="single-rating" style=" margin: 0px; position: relative; float: right; top: -10px;">
+            <span class="starRating">
+                <input name="yildiz1" id="rating1" type="radio" value="5" checked>
+                <label for="rating1">5</label>
+                <input name="yildiz1" id="rating2" type="radio" value="4">
+                <label for="rating2">4</label>
+                <input name="yildiz1" id="rating3" type="radio" value="3">
+                <label for="rating3">3</label>
+                <input name="yildiz1" id="rating4" type="radio" value="2">
+                <label for="rating4">2</label>
+                <input name="yildiz1" id="rating5" type="radio" value="1">
+                <label for="rating5">1</label>
+            </span>
+            <p>5 üzerinden <input id="durumRate1" name="rate" min="1" max="5" type="number" value="5" style="color:#fd0b0b; font-size: 15px; width: 35px; " class="item_quantity" onkeyup="if (parseInt(this.value) > 5) { this.value = 5 ; return false; }"/></p>
+
+        </div>
+        <textarea id="yorummetini" name="yorummetini"maxlength="350" placeholder="Bir yorum yazın."></textarea>
+        <button id="yorumbutonu">Yorum Yaz</button>
+    </form>
+</div>
+
+@{Html.RenderAction("Yorumlar");}
+
+<script defer src="~/Content/js/jquery.flexslider.js"></script>
+<script>
+    // Can also be used with $(document).ready()
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails"
+        });
+    });
+</script>
+<script>
+    // Can also be used with $(document).ready()
+    $(window).load(function () {
+        $('.flexslider').flexslider({
+            animation: "slide",
+            controlNav: "thumbnails"
+        });
+    });
+</script>
+
+
+<script>
+    document.getElementById("yorum").addEventListener("click", yorumSc);
+
+    function yorumSc() {
+
+        document.getElementById("yorumkutu").style.display = "block";
+        document.getElementById("yorummetini").focus();
+        var x = document.getElementById("durumRate").value;
+    }
+</script>
+
+
+<script>
+    let x = document.querySelectorAll('input[name="yildiz"]');
+    for (var i = 0; i < x.length; i++) {
+        x[i].addEventListener("change", function () {
+            document.getElementById("durumRate").value = this.value;
+            document.getElementById("durumRate1").value = this.value;
+            document.getElementById("durumRate1").focus();
+        })
+    }
+</script>
+
+<script>
+    let x = document.querySelectorAll('input[name="yildiz1"]');
+    for (var i = 0; i < x.length; i++) {
+        x[i].addEventListener("change", function () {
+            document.getElementById("durumRate").value = this.value;
+            document.getElementById("durumRate1").value = this.value;
+            document.getElementById("durumRate1").focus();
+        })
+    }
+</script>
+
+<script>
+    let y = document.getElementById("durumRate");
+        y.addEventListener("change", function () {
+            document.getElementById("durumRate1").value = this.value;
+            document.getElementById("durumRate1").focus();
+        })
+</script>
+
+<script>
+    let z = document.getElementById("durumRate1");
+    y.addEventListener("change", function () {
+        document.getElementById("durumRate").value = this.value;
+        document.getElementById("durumRate1").focus();
+    })
+</script>

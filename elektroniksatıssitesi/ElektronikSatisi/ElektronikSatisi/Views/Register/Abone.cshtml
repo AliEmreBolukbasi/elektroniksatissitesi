@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Abone";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="login-page">
+    <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
+        <h3 class="title">Kayıt<span> Formu</span></h3>
+        <p>Aramıza katılın </p>
+    </div>
+    <div class="widget-shadow">
+        <div class="login-top wow fadeInUp animated" data-wow-delay=".7s">
+            <h4>Zaten üye misiniz?<a href="/Login/Index">  Giriş Yap »</a> </h4>
+        </div>
+        <div class="login-body wow fadeInUp animated" data-wow-delay=".7s">
+            <form form action="/Register/Index" method="post" enctype="multipart/form-data">
+                <div class="dosyaAlma">
+                    <h3 id="avataryazi">AVATARINIZI SEÇİNİZ</h3>
+                    <div class="form-group" style="margin-bottom:10px;">
+                        <div class="col-md-10">
+                            <input id="avatarim" type="file" name="resim" value="" />
+                        </div>
+                    </div>
+                </div>
+                <input type="text" name="Uisim" placeholder="Adınızı Giriniz" required="">
+                <input type="text" name="Usoyisim" placeholder="Soyadınızı Giriniz" required="">
+                <input type="text" name="UkullaniciAdi" class="email" placeholder="Email Giriniz" value="@TempData["mail"]" required="">
+                <input type="password" name="USifre" class="lock" placeholder="Şifre Giriniz">
+                <h2 style="text-align: center; font-family: cursive; font-size: 17px;">@TempData["kayitli"]</h2>
+                <input type="submit" name="Register" value="Kayıt ol">
+            </form>
+        </div>
+    </div>
+    <div class="login-page-bottom">
+        <h5> - Yada -</h5>
+        <div class="social-btn"><a href="Https://www.facebook.com"><i>Facebook İle Giriş Yap</i></a></div>
+        <div class="social-btn sb-two"><a href="Https://www.twitter.com"><i>Twitter İle Giriş Yap</i></a></div>
+    </div>
+</div>

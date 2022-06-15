@@ -1,0 +1,117 @@
+﻿@model ElektronikSatisi.Models.Urunler
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<script src="~/Content/js/jquery-1.11.1.min.js"></script>
+
+<h2>DÜZENLE</h2>
+
+@using (Html.BeginForm("Edit", "Login", FormMethod.Post, new { enctype = "Multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UBaslik, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UBaslik, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UBaslik, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UAciklama, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UAciklama, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UAciklama, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <h4>Resim değiştirmek için :</h4>
+        <div class="col-md-10">
+            <input type="checkbox" id="chc1" name="chc1" value="false" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h4>Resim</h4>
+        <div class="col-md-10">
+            <input type="file" id="rsm1" name="resim" value="" style="visibility:hidden" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h4>Resimler değiştirmek için :</h4>
+        <div class="col-md-10">
+            <input type="checkbox" id="chc2" name="chc2" value="false" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h4>Çoklu Resim</h4>
+        <div class="col-md-10">
+            <input type="file" id="rsm2" name="resimler" value="" multiple style="visibility:hidden" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UFiyat, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UFiyat, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UFiyat, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UKategori, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UKategori, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UKategori, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UAdet, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UAdet, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UAdet, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+
+<div>
+    @Html.ActionLink("Geri Dön", "Admin")
+</div>
+
+<script type="text/javascript">
+    
+    document.getElementById("chc1").onclick = function () {
+        var s = document.getElementById("rsm1");
+        (s.style.visibility == "hidden") ? s.style.visibility = "" : s.style.visibility = "hidden";
+        var y = document.getElementById("chc1");
+        (y.value == "false") ? y.value = "true" : y.value = "false";
+    };
+
+    document.getElementById("chc2").onclick = function () {
+        var s = document.getElementById("rsm2");
+        (s.style.visibility == "hidden") ? s.style.visibility = "" : s.style.visibility = "hidden";
+        var y = document.getElementById("chc2");
+        (y.value == "false") ? y.value = "true" : y.value = "false";
+    };
+
+</script>

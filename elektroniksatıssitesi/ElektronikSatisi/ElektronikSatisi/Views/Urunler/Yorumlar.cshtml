@@ -1,0 +1,33 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@{
+    Layout = null;
+}
+
+@model PagedList<ElektronikSatisi.Models.Yorumlar>
+
+@foreach (var sepet in Model)
+{
+    <div class="container" id="yorumkutu">
+        <img style="width: 60px; height: 60px; position: relative; float: left;" src="@sepet.YResimYolu" />
+        <h2 style=" margin-left: 90px; font-family: cursive; padding-top: 10px;"> @sepet.YIsim @sepet.YSoyisim</h2>
+
+        <div class="single-rating" style=" margin: 0px; position: relative; float: right; top: -10px;">
+            <span class="starRating">
+                @for (int i = 0; i < sepet.YYildiz.Value; i++)
+                {
+                    <img src="~/Content/images/star1.png" />
+                }
+            </span>
+            <p>5 üzerinden <input id="durumRate1" name="rate" min="1" max="5" type="number" disabled value="@sepet.YYildiz" style="color:#fd0b0b; font-size: 15px; width: 35px; " class="item_quantity" /></p>
+        </div>
+        <textarea id="yorummetini" name="yorummetini" maxlength="350" disabled>@sepet.YYorum</textarea>
+        @if(sepet.YYorumUser == Convert.ToInt32(Session["id"]) ){
+            <form action="/Urunler/YorumSil/@sepet.YYorumUser" method="post">
+                <button class="YorumSil">Yorumu Sil</button>
+            </form>
+        }
+        
+    </div>
+
+}

@@ -1,0 +1,335 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EMRE ELEKTRONİK - Teknoloji Pazarı - Hız Ve Kalitenin Buluşma Noktası</title>
+    <!-- mobile-uygulama-icin -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--//Değişicek -->
+    <meta name="keywords" content="DEĞİŞECEK KISIM" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+    <!--mobile-uygulama-icin -->
+    <!--css -->
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/css/yorumkutusu.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Content/css/Account.css">
+    <link href="~/Content/css/animate.min.css" rel="stylesheet">
+    <!--css -->
+    <!--js-->
+    <script src="~/Content/js/jquery-1.11.1.min.js"></script>
+    <script src="~/Content/js/modernizr.custom.js"></script>
+    <script src="~/Content/js/simpleCart.min.js"></script>
+    <script src="~/Content/js/wow.min.js"></script>
+    <script type="text/javascript" src="~/Content/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Content/js/easing.js"></script>
+    <script src="~/Content/js/bootstrap.js"></script>
+    <!--js-->
+    <!--web-fonts-->
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Pompiere' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Fascinate' rel='stylesheet' type='text/css'>
+    <!--web-fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <!--animation-effect-->
+
+
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <div class="top-header navbar navbar-default">
+            <!--header-one-->
+            <div class="container">
+                <div class="nav navbar-nav wow fadeInLeft animated" data-wow-delay=".5s">
+                    <p>
+                        HOŞGELDİNİZ<br>EMRE ELEKTRONİK
+                        @if (Session["Mail"] != null || Session["EMail"] != null)
+                        {
+                            <a href="/Login/UserLogout">Çıkış Yap </a>
+                        }
+                        else
+                        {
+                            <a href="/Register/Index">Kayıt Ol </a>
+                            <a href="/Login/Index"> Giriş Yap </a>
+                        }
+
+                    </p>
+                </div>
+                <div class="nav navbar-nav navbar-right social-icons wow fadeInRight animated" data-wow-delay=".5s">
+                    <ul>
+                        <li><a href="https://www.facebook.com/" class="facebook"><img style="width: 70px; padding: 10px;" src="~/Content/images/facebook.png" /> </a></li>
+                        <li><a href="https://www.instagram.com/" class="instagram"><img style="width: 70px; padding: 10px;" src="~/Content/images/instagram.png" /></a></li>
+                        <li><a href="https://www.twitter.com/" class="twitter"> <img style="width: 70px; padding: 10px;" src="~/Content/images/twitter.png" /></a></li>
+                        <li><a href="https://www.linkedin.com/" class="linkedin"><img style="width: 70px; padding: 10px;" src="~/Content/images/linkedin.png" /> </a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="header-two navbar navbar-default">
+            <!--header-two-->
+            <div class="container">
+                <div class="nav navbar-nav header-two-left">
+                    <ul>
+                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+905545474012</li>
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">aliemre7373@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="nav navbar-nav logo wow zoomIn animated" data-wow-delay=".7s">
+                    <h1><a href="/Home/Index">EMRE <b>ELEKTRONİK</b><span class="tag">Teknoloji adına herşey</span> </a></h1>
+                </div>
+                <div class="nav navbar-nav navbar-right header-two-right">
+                    <div class="header-right my-account">
+
+                        @if (Session["Mail"] != null || Session["EMail"] != null)
+                        {
+                            <div class="header-right cart">
+                                <a href="/Shopping/Index"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+                                <h4>
+                                    <a href="/Shopping/Index">
+                                        <span > @Session["tutar"]TL </span> (<span> @Session["sepetAdet"] ADET </span>)
+                                    </a>
+                                </h4>
+                                <div class="cart-box">
+                                    <p><a href="/Shopping/SepetiBosalt" class="simpleCart_empty">Sepeti Boşalt</a></p>
+
+                                </div>
+                            </div>
+
+                        }
+                        else { 
+                            <div class="header-right cart">
+                                <a href="/Login/Index"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+                                <h4>
+                                    <a href="/Login/Index">
+                                        <span> 0.00TL </span> (<span > 0 </span>)
+                                </a>
+                                </h4>
+                            </div>
+                        }
+
+                        <div id="iletisimim" class="iletisimim">
+                            <a href="/Iletisim/Index"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> İLETİŞİM</a>
+                        </div>
+
+                            @if (Session["Mail"] != null || Session["EMail"] != null)
+                            {
+                                <div class="action">
+                                    <div class="profile" onmouseover="menuToggle()" ;>
+                                        <img src="@Session["Resim"]" />
+                                    </div>
+
+                                    <div id="accountmenu" class="menu">
+                                        <h3>Kullanıcı<br /><span>@Session["Isım"] @Session["Soyad"]</span></h3>
+                                        <ul>
+                                            <li>
+                                                <img src="@Session["Resim"]" /><a href="#">Profilim</a>
+                                            </li>
+                                            <li>
+                                                <img src="~/Content/images/düzenle.png" /><a href="#">Profili düzenle</a>
+                                            </li>
+                                            <li>
+                                                <img src="~/Content/images/ayarlar.png" /><a href="#">Ayarlar</a>
+                                            </li>
+                                            <li><img src="~/Content/images/yardım.png" /><a href="#">Yardım</a></li>
+                                            <li>
+                                                <img src="~/Content/images/cıkıs.png" /><a href="/Login/UserLogout">Çıkış Yap</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="action">
+                                    <div class="profile" onmouseover="menuToggle()" ;>
+                                        <img src="~/Content/images/avatar.png" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-nav navbar navbar-default">
+            <!--header-three-->
+            <div class="container">
+                <nav class="navbar" role="navigation">
+                    <!--navbar-header-->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav top-nav-info">
+                            <li><a href="/Home/Index" class="active">Ana Sayfa</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laptop<b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column multi-column1">
+                                    <div class="row">
+                                        <div class="col-sm-4 menu-grids menulist1">
+                                            <h4>LAPTOP ÜRÜNLERİ</h4>
+                                            <ul class="multi-column-dropdown ">
+                                                <li><a class="list" href="/Laptop/Index">LAPTOP</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown grid">
+                                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Masaüstü<b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column multi-column2">
+                                    <div class="row">
+                                        <div class="col-sm-3 menu-grids">
+                                            <h4>MASAÜSTÜ</h4>
+                                            <ul class="multi-column-dropdown">
+                                                <li><a class="list" href="/MasaUstu/Index">MASAÜSTÜ</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-3 menu-grids new-add2">
+                                            <a href="/MasaUstu/Index">
+                                                <h6>Masaüstü Bilgisayarlarda %50 varan indirim</h6>
+                                                <img src="~/Content/images/h1cd5c178a-80a1-4874-9e82-51cbd36d9a43.png" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown grid">
+                                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Telefon<b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column menu-two multi-column3">
+                                    <div class="row">
+                                        <div class="col-sm-4 menu-grids">
+                                            <h4>TELEFONLAR</h4>
+                                            <ul class="multi-column-dropdown">
+                                                <li>@Html.ActionLink("İphone", "Telefon", new { id = "IPHONE" })</li>
+                                                <li>@Html.ActionLink("Samsung", "Telefon", new { id = "SAMSUNG" })</li>
+                                                <li>@Html.ActionLink("Huawei", "Telefon", new { id = "HUAWEI" })</li>
+                                                <li>@Html.ActionLink("Blackberry", "Telefon", new { id = "BLACBERRY" })</li>
+                                                <li>@Html.ActionLink("General Mobile", "Telefon", new { id = "GENERAL MOBILE" })</li>
+                                                <li>@Html.ActionLink("Oppo", "Telefon", new { id = "OPPO" })</li>
+                                                <li>@Html.ActionLink("Xiaomi", "Telefon", new { id = "XIAOMI" })</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-8 menu-grids">
+                                            <a href="/Telefon/Index">
+                                                <div class="new-add">
+                                                    <h5 style="font-size: 2em;">%30 Varan İndirimler <br> Sadece Bugün</h5>
+                                                    <img style="width: 150px; height: 150px; margin-left: 10%;" src="~/Content/images/h1cd5c178a-80a1-4874-9e82-51cbd36d9a43.png" alt="">
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown grid">
+                                <a href="#" class="dropdown-toggle list1" data-toggle="dropdown">Aksesuar <b class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column multi-column4">
+                                    <div class="row">
+                                        <div class="col-sm-4 menu-grids menulist1">
+                                            <h4>Aksesuarlar</h4>
+                                            <ul class="multi-column-dropdown ">
+                                                <li><a class="list" href="products.html">Kulaklık</a></li>
+                                                <li><a class="list" href="products.html">Şarj Cihazı</a></li>
+                                            </ul>
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="clearfix"> </div>
+                        <!--//navbar-collapse-->
+                        <header class="cd-main-header">
+                            <ul class="cd-header-buttons">
+                                <li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+                            </ul> 
+                        </header>
+                    </div>
+                    <!--//navbar-header-->
+                </nav>
+                <div id="cd-search" class="cd-search">
+                    <form action="/Home/SearchUrunGetir" method="post">
+                        <input type="search" name="search" placeholder="Arama Yap">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//header-->
+
+    @RenderBody()
+
+    <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-info">
+                <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".5s">
+                    <h4 class="footer-logo"><a href="index.html">EMRE <b>ELEKTRONİK</b> <span class="tag">Daha İyi Hizmetİ Getirmek İçin </span> </a></h4>
+                    <p>© 2022 EMRE ELEKTRONİK . |Tüm Hakları Saklıdır|</p>
+                </div>
+                <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".7s">
+                    <h3>Yardım İste</h3>
+                    <ul>
+                        <li><a href="/Iletisim/index">Hakkımızda</a></li>
+                        <li><a href="/Iletisim/Index">İletişime Geç</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".9s">
+                    <h3>Kayıt Ol</h3>
+                    <p>Alışveriş Yapmak İçin <a href="/Login/Index">Üye Ol</a></p>
+                    <form action="/Register/Abone" method="post">
+                        <input type="text" name="email" placeholder="Email Giriniz" required="">
+                        <input type="submit" value="ONAY">
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!--//footer-->
+    <!--search jQuery-->
+    <script src="~/Content/js/main.js"></script>
+    <!--//search jQuery-->
+    <!--smooth-scrolling-of-move-up-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var defaults = {
+                containerID: 'toTop', // fading element id
+                containerHoverID: 'toTopHover', // fading element hover id
+                scrollSpeed: 1200,
+                easingType: 'linear'
+            };
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+    </script>
+
+
+    <script>
+        function menuToggle() {
+            const toggleMenu = document.querySelector(".menu");
+            toggleMenu.classList.toggle("active");
+        }
+    </script>
+
+    <script>
+        new WOW().init();
+    </script>
+    <!--//animation-effect-->
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

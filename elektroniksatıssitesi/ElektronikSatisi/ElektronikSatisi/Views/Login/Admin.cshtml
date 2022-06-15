@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ElektronikSatisi.Models.Urunler>
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div style="width: 100%; " class="container">
+    <div style="line-height: 2; font-size: 17px; background-color: #ebdbdb; text-align: center; padding: 10px; margin-bottom: 20px; " class="jumbotron">
+        HOŞGELDİNİZ @Session["Mail"]
+    </div>
+</div>
+
+<p style="margin: 0 0 20px;">
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UResimYol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UFiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UKategori)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UAciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UResimYol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UFiyat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UKategori)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

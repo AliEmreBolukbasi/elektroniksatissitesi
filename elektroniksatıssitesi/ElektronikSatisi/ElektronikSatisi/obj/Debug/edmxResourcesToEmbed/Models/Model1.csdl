@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmarketModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Manset">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MBaslik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MAciklama" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MResimYol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Resimler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ResimYolu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Urunler" Relationship="Self.FK_Resimler_Urunler" FromRole="Resimler" ToRole="Urunler" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Baslik" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ResimYol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fiyat" Type="Int32" />
+    <Property Name="Kategori" Type="Int32" />
+    <NavigationProperty Name="Resimler" Relationship="Self.FK_Resimler_Urunler" FromRole="Urunler" ToRole="Resimler" />
+  </EntityType>
+  <Association Name="FK_Resimler_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="1" />
+    <End Role="Resimler" Type="Self.Resimler" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Resimler">
+        <PropertyRef Name="id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmarketEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Manset" EntityType="Self.Manset" />
+    <EntitySet Name="Resimler" EntityType="Self.Resimler" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Urunler" EntityType="Self.Urunler" />
+    <AssociationSet Name="FK_Resimler_Urunler" Association="Self.FK_Resimler_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="Resimler" EntitySet="Resimler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ElektronikSatisi.Models.MesajBox>
+
+@{
+    ViewBag.Title = "Mesaj";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>MESAJ</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MBUrun)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MBIsim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MBSoyisim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MBMail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MBMesaj)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MBTelefon)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MBUrun)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MBIsim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MBSoyisim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MBMail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MBMesaj)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MBTelefon)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

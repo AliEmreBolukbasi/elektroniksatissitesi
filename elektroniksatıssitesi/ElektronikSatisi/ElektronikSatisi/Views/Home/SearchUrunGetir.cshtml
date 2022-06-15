@@ -1,0 +1,46 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "SearchUrunGetir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@model PagedList<ElektronikSatisi.Models.Urunler>
+
+@{Html.RenderAction("Slider");}
+
+<div class="gallery">
+    <div class="container">
+        <div class="title-info wow fadeInUp animated" data-wow-delay=".5s">
+            <h3 class="title">Ürünler<span> Balıkesir</span></h3>
+            <p>Tüm Ürünler</p>
+        </div>
+        <div class="lister">
+            @Html.PagedListPager(Model, Page => Url.Action("index", new { Page }))
+        </div>
+
+        <div class="gallery-info">
+            @foreach (var urunler in Model)
+            {
+
+            <div class="col-md-3 gallery-grid wow flipInY animated" data-wow-delay=".5s">
+                <a href="/Urunler/Detay/@urunler.id"><img src="@urunler.UResimYol" class="img-responsive" alt="" /></a>
+                <div class="gallery-text simpleCart_shelfItem">
+                    <h5><a class="name" href="single.html">@urunler.UBaslik</a></h5>
+                    <p><span class="item_price">@urunler.UFiyat</span></p>
+                </div>
+                <h4 class="acikla" style="font-size: 12px; padding: 10px; text-align: center;"><span class="item_price">@urunler.UAciklama</span></h4>
+            </div>
+
+            }
+
+
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+

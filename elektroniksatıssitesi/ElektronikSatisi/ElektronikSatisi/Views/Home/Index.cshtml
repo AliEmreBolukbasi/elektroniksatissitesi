@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="jumbotron">
+        @Session["Isım"] @Session["Soyad"] HOŞGELDİNİZ
+    </div>
+</div>
+
+@{Html.RenderAction("Slider");}
+@{Html.RenderAction("UrunGetir");}
